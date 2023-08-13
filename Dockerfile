@@ -1,9 +1,9 @@
 FROM amazoncorretto:17
 
-ARG MAVEN_VERSION=3.8.1
+ARG MAVEN_VERSION=3.9.2
 ARG USER_HOME_DIR="/root"
-ARG SHA=db17fe432790e439fa36de0dbadf8c4e722831d8
-ARG BASE_URL="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.8.1"
+ARG SHA=f68ae58c64431e1a0361359a7f091d39ac8a74d4
+ARG BASE_URL="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.2"
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
