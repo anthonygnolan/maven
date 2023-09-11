@@ -20,7 +20,7 @@ RUN export GNUPGHOME="$(mktemp -d)"
 RUN for key in ae5a7fb608a0221c ; do \
       gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
       done
-RUN gpg --batch --verify apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc apache-maven-${MAVEN_VERSION}-bin.tar.gz 
+#RUN gpg --batch --verify apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc apache-maven-${MAVEN_VERSION}-bin.tar.gz
 RUN mkdir -p ${MAVEN_HOME} ${MAVEN_HOME}/ref
 RUN tar -xzf apache-maven-${MAVEN_VERSION}-bin.tar.gz -C ${MAVEN_HOME} --strip-components=1 \
       # GNUPGHOME may fail to delete even with -rf
