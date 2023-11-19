@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-ubi9-minimal
+FROM amazoncorretto:21-al2023-headless
 
 ARG MAVEN_VERSION=3.9.2
 ARG USER_HOME_DIR="/root"
