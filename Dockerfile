@@ -1,4 +1,4 @@
-FROM amazoncorretto:21-al2023-headless
+FROM amazoncorretto:21
 
 ARG MAVEN_VERSION=3.9.2
 ARG USER_HOME_DIR="/root"
