@@ -1,5 +1,10 @@
 # Maven
 
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=anthonygnolan_maven&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=anthonygnolan_maven)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=anthonygnolan_maven&metric=bugs)](https://sonarcloud.io/summary/new_code?id=anthonygnolan_maven)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=anthonygnolan_maven&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=anthonygnolan_maven)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=anthonygnolan_maven&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=anthonygnolan_maven)
+
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
