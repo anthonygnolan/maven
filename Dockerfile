@@ -11,13 +11,12 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 RUN addgroup -S nonroot \
  && adduser -S nonroot -G nonroot \
- && mkdir /nonroot \
- && mkdir /.m2 \
+ && mkdir /nonroot /nonroot/.m2 /nonroot/.m2/repository \
  && apk --no-cache add gnupg \
- && wget ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
- && echo "${SHA}  apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha1sum -c - \
- && wget ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc \
- && echo "${SHA_ASC}  apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" | sha1sum -c - \
+ && wget "${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+ && echo "${SHA}" "apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha1sum -c - \
+ && wget "${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" \
+ && echo "${SHA_ASC}"  "apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" | sha1sum -c - \
  && export GNUPGHOME="$(mktemp -d)" \
  && for key in ae5a7fb608a0221c ; do \
       gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
@@ -25,8 +24,8 @@ RUN addgroup -S nonroot \
  && mkdir -p ${MAVEN_HOME} ${MAVEN_HOME}/ref \
  && tar -xzf apache-maven-${MAVEN_VERSION}-bin.tar.gz -C ${MAVEN_HOME} --strip-components=1 \
  && rm -rf "$GNUPGHOME"  || true \
- && rm -rf apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc apache-maven-${MAVEN_VERSION}-bin.tar.gz \
- && ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn \
+ && rm -rf "apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" "apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+ && ln -s "${MAVEN_HOME}/bin/mvn" "/usr/bin/mvn" \
  && mvn --version
 
 COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
