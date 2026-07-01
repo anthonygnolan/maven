@@ -13,9 +13,9 @@ RUN addgroup -S nonroot \
  && adduser -S nonroot -G nonroot \
  && mkdir -p /nonroot/.m2/repository \
  && apk --no-cache add gnupg \
- && wget --max-redirect=1 "${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+ && wget "${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
  && echo "${SHA}" "apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha512sum -c - \
- && wget --max-redirect=0 "${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" \
+ && wget "${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" \
  && echo "${SHA_ASC}"  "apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc" | sha512sum -c - \
  && export GNUPGHOME="$(mktemp -d)" \
  && for key in ae5a7fb608a0221c ; do \
